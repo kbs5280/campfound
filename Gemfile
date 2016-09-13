@@ -37,6 +37,9 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
+  gem 'faraday'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development, :test do
