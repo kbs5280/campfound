@@ -1,13 +1,13 @@
-class Festivals
+class Festival
   attr_reader :title, :city, :state, :date, :address,
               :description, :url, :longitude, :latitude, :id
 
   def initialize(festival)
     @title       = festival["title"]
-    @city        = festival["city_name"]
-    @state       = festival["region_name"]
+    @city        = festival["city"]
+    @state       = festival["region"]
     @date        = date(festival["start_time"])
-    @address     = festival["venue_address"]
+    @address     = festival["address"]
     @description = festival["description"]
     @url         = festival["url"]
     @longitude   = festival["longitude"]
@@ -15,11 +15,9 @@ class Festivals
     @id          = festival["id"]
   end
 
-  def self.find_all(params)
-    festivals = FestivalsService.new.festivals(params)["events"]["event"]
-    festivals.map do |festival|
-      Festivals.new(festival)
-    end
+  def self.find(id)
+    festival = FestivalsService.new.festival(id)
+    Festival.new(festival)
   end
 
   def date(datetime)

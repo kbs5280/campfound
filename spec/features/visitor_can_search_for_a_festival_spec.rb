@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe 'Visitor can choose a festival', type: :feature do
-  context 'when viewing a list of festivals returned from a search' do
-    scenario 'and sees the festival details' do
+describe 'Visitor can search for festivals', type: :feature do
+  context 'there is a form for parameters on the root page' do
+    scenario 'and sees a list of festivals on the index page' do
 
       visit root_path
 
@@ -17,14 +17,11 @@ describe 'Visitor can choose a festival', type: :feature do
       expect(page).to have_content "Littleton"
       expect(page).to have_content "Colorado"
       expect(page).to have_content "8500 Deer Creek Canyon Rd"
-      expect(page).to have_link    "View details and find campgrounds"
-
-      first('.Pumpkin').click_link('View details and find campgrounds')
-
-      expect(page).to have_content "Pumpkin Festival"
-      expect(page).to have_content "Denver"
+      expect(page).to have_content "Harvest Festival & Grape Stomp"
+      expect(page).to have_content "Littleton"
       expect(page).to have_content "Colorado"
-      expect(page).to have_content "1007 York Street"
+      expect(page).to have_content "2101 East Arapahoe Road"
+      expect(page).to have_link    "View details and find campgrounds"
     end
   end
 end
