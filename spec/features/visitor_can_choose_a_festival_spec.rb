@@ -8,9 +8,20 @@ describe 'Visitor can search for festivals', type: :feature do
 
       select 'Denver, CO', from: :location
       select 'October', from: :date
-      select '0 miles', from: :radius
+      select '10 miles', from: :radius
       click_on 'Submit'
 
+      expect(current_path).to eq(festivals_path)
+
+      expect(page).to have_content "Harvest Festival & Grape Stomp"
+      expect(page).to have_content "Littleton"
+      expect(page).to have_content "Colorado"
+      expect(page).to have_content "2101 East Arapahoe Road"
+      expect(page).to have_content "Pumpkin Festival"
+      expect(page).to have_content "Littleton"
+      expect(page).to have_content "Colorado"
+      expect(page).to have_content "8500 Deer Creek Canyon Rd"
+      expect(page).to have_link    "View details and find campgrounds"
     end
   end
 end

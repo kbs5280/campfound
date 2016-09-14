@@ -1,5 +1,5 @@
 class FestivalsController < ApplicationController
   def index
-    @festivals = FestivalsService.new.festivals(params)
+    @festivals = Festivals.find_all(params)
   end
 end
