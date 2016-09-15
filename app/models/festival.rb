@@ -15,7 +15,7 @@ class Festival
     @id          = festival["id"]
   end
 
-  def self.find(id)
+  def self.find_one_by(id)
     festival = FestivalsService.new.festival(id)
     Festival.new(festival)
   end
