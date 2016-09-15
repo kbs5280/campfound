@@ -15,7 +15,7 @@ class Festivals
     @id          = festival["id"]
   end
 
-  def self.find_all(params)
+  def self.find_all_by(params)
     festivals = FestivalsService.new.festivals(params)["events"]["event"]
     festivals.map do |festival|
       Festivals.new(festival)
