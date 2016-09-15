@@ -1,9 +1,11 @@
 <h1>Festivals Index</h1>
 
 <% @festivals.each do |festival| %>
-  <%= festival.title %><br>
-  <%= festival.city %><br>
-  <%= festival.state %><br>
-  <%= festival.address %><br>
-  <%= link_to "View details and find campgrounds for #{festival.title}", festival_path(festival) %>
+  <div class="<%= festival.title%>">
+    <%= festival.title %><br>
+    <%= festival.city %><br>
+    <%= festival.state %><br>
+    <%= festival.address %><br>
+    <%= link_to "View details and find campgrounds for #{festival.title}", festival_path(festival, festival_id: festival.id) %>
+  </div>
 <% end %><br><br>

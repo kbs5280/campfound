@@ -11,6 +11,12 @@ class FestivalsService
     JSON.parse(response.body)
   end
 
+  def festival(id)
+    response = connection.get("json/events/get?id=E0-001-095709034-6&app_key=#{ENV['eventful_app_key']}",
+                             { id: id})
+    JSON.parse(response.body)
+  end
+
   private
 
     def connection
