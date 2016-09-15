@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="intial-scale-1.0, user-scalable=no">
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDygdQyB_nu98PLzLwE9or1yqXGSIcu6o8"></script>
+      <script>
+      var map;
+      var infowindow;
+
+      function initialize() {
+          // console.log('map?')
+          // var latitude = $("div[id='map']").attr("data-latitude"),
+          //     longitude = $("div[id='map']").attr("data-longitude");
+
+          var center = new google.maps.LatLng(39.748328, -104.997352);
+          map = new google.maps.Map(document.getElementById('map'), {
+              center: center,
+              zoom: 11
+          });
+
+          var request = {
+              location: center,
+              radius: 16000,
+              types: ['campground']
+            };
+          infowindow = new google.maps.InfoWindow();
+
+          var service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, callback);
+        }
+
+        function callback(results, status) {
+          if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+              createMarker(results[i]);
+            }
+         }
+      }
+
+        function createMarker(place) {
+          var placeLoc = place.geometry.location;
+          var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+          });
+
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+          });
+      }
+
+          google.maps.event.addDomListener(window, 'load', initialize);
+      </script>
+
+      <style>
+      html, body, #map {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      </style>
+    </head>
+    <body>
+      <div id="map">
+
+      </div>
+  </body>
+</html>
