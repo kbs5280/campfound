@@ -35,6 +35,11 @@
 </nav>
 
   <body>
+    <% flash.each do |type, message| %>
+      <div data-alert class="flash_<%= type %> alert-box round">
+        <%= sanitize(message) %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
