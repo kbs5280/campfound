@@ -4,8 +4,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:id])
+    if current_user
+      @user = current_user
+    else
+      redirect_to root_path
+      flash[:notice] = 'Sign in or log in to view your dashboard'
+    end
   end
+
   def create
     user = User.new(user_params)
     if user.save
