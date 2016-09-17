@@ -26,6 +26,7 @@
             <%= link_to 'Logout', "signout" %>
           <% else %>
             <%= link_to 'Sign in with Google', "/auth/google_oauth2", id: "sign_in", class: "btn btn-primary btn-sm" %>
+            <%= link_to 'Create an account', new_user_path, class: "btn btn-primary btn-sm" %>
           <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
