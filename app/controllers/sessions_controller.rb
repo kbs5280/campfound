@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def new
+  end
+
   def create
     @user = find_user || nil
     authenticate_user
@@ -15,7 +18,7 @@ class SessionsController < ApplicationController
       if request.env['omniauth.auth']
         user = User.find_by(username: request.env['omniauth.auth']['name'])
       else
-        user = User.find_by(username: params[:session][:username])
+        user = User.find_by(name: params[:session][:name])
       end
     end
 
@@ -31,7 +34,7 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id
         flash[:success] = "Successfully logged in!"
-        redirect_to dashboard
+        redirect_to dashboard_path
       else
         invalid_login
       end
