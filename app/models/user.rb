@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # has_secure_password
+  has_secure_password
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
@@ -8,6 +8,7 @@ class User < ApplicationRecord
       user.name             = auth.info.name
       user.oauth_token      = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.password_digest  = SecureRandom.urlsafe_base64
       user.save!
     end
   end
