@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    session[:festival_id] = params[:festival_id]
   end
 
   def create
@@ -8,7 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session.destroy
     redirect_to root_path
   end
 
@@ -34,7 +35,11 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id
         flash[:success] = "Successfully logged in!"
+        if session[:festival_id]
+          redirect_to festival_path(session[:festival_id])
+        else
         redirect_to dashboard_path
+      end
       else
         invalid_login
       end

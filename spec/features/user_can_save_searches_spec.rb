@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Visitor can save a festival', type: :feature do
   context 'after searching festivals and choosing one' do
     scenario 'and sees the festival search in the dashboard' do
-
+      user = User.create(name: 'Alan', password: 'password')
       visit root_path
 
       select 'Denver, CO', from: :location
@@ -25,10 +25,18 @@ describe 'Visitor can save a festival', type: :feature do
       expect(page).to have_content "Denver"
       expect(page).to have_content "Colorado"
       expect(page).to have_content "1007 York Street"
+save_and_open_page
+      click_link 'Log in to save Search or'
 
-      click_link 'Save Search'
+      click_link 'Login'
+      expect(current_path).to eq('/login')
+      fill_in 'Name', with: user.name
+      fill_in 'Password', with: user.password
+      click_button 'Login'
+      save_and_open_page
+
+      click_button 'Save Search'
       expect(page).to have_content 'Search saved to dashboard'
-      expect(page).to have_content 'View dashboard'
 
       click_link 'View dashboard'
 

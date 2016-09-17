@@ -21,6 +21,6 @@ class Festival
   end
 
   def date(datetime)
-    datetime.to_datetime.strftime('%b %d, %Y')
+    datetime.to_datetime.strftime('%b %d, %Y') if datetime
   end
 end

@@ -2,7 +2,12 @@
 <%= @festival.city %><br>
 <%= @festival.state %><br>
 <%= @festival.address %><br>
-
+<% if current_user %>
+  <%= button_to 'Save Search', festivals_path(festival_id: @festival.id, festival_name: @festival.title) %>
+<% else %>
+  <%= link_to 'Log in to save Search or', login_path(festival_id: @festival.id) %><br>
+  <%= link_to 'Create account to save Search', new_user_path(festival_id: @festival.id) %>
+<% end %>
 <div
 data-latitude="<%= @festival.latitude %>"
 data-longitude="<%= @festival.longitude %>"
