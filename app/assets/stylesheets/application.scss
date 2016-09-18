@@ -5,8 +5,8 @@
 }
 
 html, body, #map {
-  height: 75%;
-  margin: 25px;
+  height: 80%;
+  margin: 0px;
   padding: 25px;
 }
 
@@ -19,3 +19,11 @@ html, body, #map {
   max-width: 1100px;
   margin: 0 auto;
 }
+
+.flash_success {
+  background-color: green;
+}
+
+.jumbotron {
+background-image: url('./old-white-background.jpg');
+background-size: cover;}
