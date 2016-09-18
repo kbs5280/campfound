@@ -1,1 +1,5 @@
 <h1> Welcome, <%= @user.name %> </h1>
+<% @searches.each do |search| %>
+  <% search.festival_name %><br>
+  <%= link_to "View details for #{search.festival_name}", festival_path(search.festival_id) %><br>
+<% end %>
