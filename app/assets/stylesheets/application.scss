@@ -1,1 +1,29 @@
 /*Declare each .scss file below with @import 'file_name';*/
+
+.navbar-right {
+  padding: 5px;
+}
+
+html, body, #map {
+  height: 80%;
+  margin: 0px;
+  padding: 25px;
+}
+
+.hero {
+  padding: 30px;
+}
+
+.wrap {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.flash_success {
+  background-color: green;
+}
+
+.jumbotron {
+background-image: url('./old-white-background.jpg');
+background-size: cover;}
