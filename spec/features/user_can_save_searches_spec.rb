@@ -25,23 +25,21 @@ describe 'Visitor can save a festival', type: :feature do
       expect(page).to have_content "Denver"
       expect(page).to have_content "Colorado"
       expect(page).to have_content "1007 York Street"
-save_and_open_page
+
       click_link 'Log in to save Search or'
 
-      click_link 'Login'
-      expect(current_path).to eq('/login')
       fill_in 'Name', with: user.name
       fill_in 'Password', with: user.password
       click_button 'Login'
-      save_and_open_page
 
       click_button 'Save Search'
-      expect(page).to have_content 'Search saved to dashboard'
+      expect(page).to have_content 'Search saved to your dashboard'
 
-      click_link 'View dashboard'
+      click_link 'Dashboard'
 
       expect(current_path).to eq('/dashboard')
-      expect(page).to have_content "Pumpkin Festival"
+      save_and_open_page
+      expect(page).to have_content 'Pumpkin Festival'
     end
   end
 end

@@ -1,30 +1,13 @@
 /*Declare each .scss file below with @import 'file_name';*/
 
 .navbar-right {
-  padding: 25px;
-}
-
-body {
-  // background-color: gray !important;
-  // background: url(img/bg.jpg) no-repeat center center fixed;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // background-size: cover;
+  padding: 5px;
 }
 
 html, body, #map {
   height: 75%;
   margin: 25px;
   padding: 25px;
-}
-
-.jumbotron {
-   background: rgb(200, 54, 54); /* This is for ie8 and below */
-   background: rgba(200, 54, 54, 0.5);
-}
-
-.navbar-brand {
-  font-size: 100px;
 }
 
 .hero {
