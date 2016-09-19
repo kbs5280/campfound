@@ -6,7 +6,7 @@ class Festivals
     @title       = festival["title"]
     @city        = festival["city_name"]
     @state       = festival["region_name"]
-    @date        = date(festival["start_time"])
+    @date        = date_format(festival["start_time"])
     @address     = festival["venue_address"]
     @description = festival["description"]
     @url         = festival["url"]
@@ -22,7 +22,7 @@ class Festivals
     end
   end
 
-  def date(datetime)
+  def date_format(datetime)
     datetime.to_datetime.strftime('%b %d, %Y')
   end
 end
