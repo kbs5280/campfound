@@ -19,10 +19,12 @@ class UsersController < ApplicationController
     if user.save
       if session[:festival_id]
         redirect_to festival_path(session[:festival_id])
-        notice[:success] = 'Account created.'
+        notice[:success] = 'Account created!'
         session[:user_id] = user.id
       else
-      redirect_to dashboard_path
+        session[:user_id] = user.id
+        redirect_to dashboard_path
+        notice[:success] = 'Account created!'
       end
     else
       notice[:danger] = 'Account creation failed. Try again.'
