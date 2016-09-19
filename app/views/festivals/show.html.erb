@@ -1,10 +1,9 @@
 <div class="jumbotron">
   <div class="hero">
     <h6 class="lead">Here's a list of all the festivals that meet your search criteria...</h6>
-      <%= @festival.title %><br>
-      <%= @festival.city %><br>
-      <%= @festival.state %><br>
+      <strong><%= "#{@festival.title} - #{@festival.date}" %></strong><br>
       <%= @festival.address %><br>
+      <%= "#{@festival.city}, #{@festival.state}" %><br>
       <%= link_to 'View Festival Website', @festival.url %><br><br>
       <% if current_user %>
       <%= button_to 'Save Search', festivals_path(festival_id: @festival.id, festival_name: @festival.title), class: "btn btn-primary btn-sm" %>
