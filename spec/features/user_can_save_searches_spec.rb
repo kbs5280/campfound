@@ -38,7 +38,6 @@ describe 'Visitor can save a festival', type: :feature do
       click_link 'Dashboard'
 
       expect(current_path).to eq('/dashboard')
-      save_and_open_page
       expect(page).to have_content 'Pumpkin Festival'
     end
   end
