@@ -10,9 +10,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-
   resources :session, only: [:create, :destroy]
   resources :festivals, only: [:index, :show, :create]
 
-  # get "*any", via: :all, to: "errors#not_found"
+  get "*any", via: :all, to: "errors#not_found"
 end
