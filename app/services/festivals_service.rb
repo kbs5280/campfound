@@ -1,25 +1,31 @@
 class FestivalsService
   def initialize
     @_connection = Faraday.new('http://api.eventful.com')
+    connection.params["app_key"]="#{ENV['eventful_app_key']}"
   end
 
   def festivals(params)
-    response = connection.get("json/events/search?keywords=festival&app_key=#{ENV['eventful_app_key']}",
-                             { location: params[:location],
+    response = connection.get("json/events/search",
+                             { keywords: 'festival',
+                               location: params[:location],
                                date:     params[:date],
                                radius:   params[:radius] })
-    JSON.parse(response.body)
+    parse(response.body)
   end
 
   def festival(id)
-    response = connection.get("json/events/get?id=E0-001-095709034-6&app_key=#{ENV['eventful_app_key']}",
+    response = connection.get("json/events/get",
                              { id: id})
-    JSON.parse(response.body)
+    parse(response.body)
   end
 
   private
 
     def connection
       @_connection
+    end
+
+    def parse(response_body)
+      JSON.parse(response_body, symbolize_names: true)
     end
 end
