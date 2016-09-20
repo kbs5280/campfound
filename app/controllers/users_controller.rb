@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def new
-    session[:festival_id] = params[:festival_id]
     @user = User.new
+    session[:festival_id] = params[:festival_id]
   end
 
   def show
