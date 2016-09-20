@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron trans">
   <div class="hero">
     <h6 class="lead">Campgrounds for the festival bound...</h6>
     <%= form_tag(festivals_path, :method => "get") do %>
@@ -15,7 +15,7 @@
         <%= select_tag :radius, options_for_select(radius_options) %>
       </div><br>
       <div class="">
-        <%= submit_tag "Submit", class: "btn btn-primary btn-lg" %>
+        <%= submit_tag "Submit", class: "btn btn-primary btn-md" %>
       </div>
     <% end %>
     <!-- <p class="lead">

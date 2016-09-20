@@ -64,15 +64,12 @@ module ApplicationHelper
       ['January', 'January'],
       ['February', 'February'],
       ['March', 'March'],
-      ['April', 'April']      
+      ['April', 'April']
     ]
   end
 
   def radius_options
     [
-      ['0 miles', 0],
-      ['1 mile', 1],
-      ['5 miles', 5],
       ["10 miles", 10],
       ['15 miles', 15],
       ['20 miles', 20],
