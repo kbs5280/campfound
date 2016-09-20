@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    session[:festival_id] = params[:festival_id]
   end
 
   def show
@@ -16,11 +17,16 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      notice[:success] = 'Account created.'
-      session[:user_id] = user.id
-      redirect_to dashboard_path
+      if session[:festival_id]
+        redirect_to festival_path(session[:festival_id])
+        notice[:success] = 'Account created!'
+        session[:user_id] = user.id
+      else
+        session[:user_id] = user.id
+        redirect_to dashboard_path
+        notice[:success] = 'Account created!'
+      end
     else
-      require "pry"; binding.pry
       notice[:danger] = 'Account creation failed. Try again.'
       render :new
     end

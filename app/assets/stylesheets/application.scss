@@ -6,7 +6,7 @@
 
 html, body, #map {
   height: 80%;
-  margin: 0px;
+  margin: 0px, 0px, 25px, 0px;
   padding: 25px;
 }
 
@@ -29,5 +29,21 @@ html, body, #map {
 }
 
 .jumbotron {
-background-image: image-url('old-white-background.jpg');
-background-size: cover;}
+// background-image: image-url('old-white-background.jpg');
+// background-size: cover;
+}
+
+.trans {
+  background-color: rgba(255,255,255, 0.5);
+  color: inherit;
+}
+
+body {
+  background-image: image-url('lake.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// .jumbotron {
+//    background: rgba(200, 54, 54, 0.5);
+// }

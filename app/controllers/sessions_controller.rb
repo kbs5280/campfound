@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
           redirect_to festival_path(session[:festival_id])
         else
         redirect_to dashboard_path
-      end
+        end
       else
         invalid_login
       end

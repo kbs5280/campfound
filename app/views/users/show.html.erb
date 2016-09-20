@@ -1,10 +1,15 @@
 <div class="jumbotron">
   <div class="hero">
       <h3> Welcome, <%= @user.name %> </h3><br>
+      <% unless @searches == [] %>
       <h6 class="lead">Here's a list of your saved searches...</h6>
       <% @searches.each do |search| %>
         <% search.festival_name %><br>
-        <%= link_to "View details for #{search.festival_name}", festival_path(search.festival_id) %><br>
+        <%= link_to "#{search.festival_name}", festival_path(search.festival_id) %><br>
+      <% end %>
+      <% else %>
+        <h6 class="lead">You don't have any saved searches.</h6><br>
+        <%= link_to 'Click here to search for festivals', root_path %>
       <% end %>
   </div>
 </div>
