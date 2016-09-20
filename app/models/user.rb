@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  validates :name, uniqueness: true
+
   has_many :searches
 
   def self.from_omniauth(auth)

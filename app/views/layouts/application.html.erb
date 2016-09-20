@@ -30,7 +30,7 @@
           <ul class="nav navbar-nav navbar-right">
               <% if current_user %>
                 <%= "Signed in as: #{current_user.name}  " %>
-                <%= link_to 'Logout', "signout", class: "btn btn-primary btn-sm" %>
+                <%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-primary btn-sm" %>
               <% else %>
                 <%= link_to 'Sign in with Google', "/auth/google_oauth2", id: "sign_in", class: "btn btn-primary btn-sm" %>
                 <%= link_to 'Create an account', new_user_path, class: "btn btn-primary btn-sm" %>

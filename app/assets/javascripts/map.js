@@ -4,7 +4,6 @@ $(document).ready(function() {
   var infowindow;
 
   function initialize() {
-      console.log('map?')
       var latitude = $("div[id='map']").attr("data-latitude"),
           longitude = $("div[id='map']").attr("data-longitude");
 
@@ -51,6 +50,5 @@ $(document).ready(function() {
 
 })
 $(function() {
-  console.log('i ran brefore');
 
 });

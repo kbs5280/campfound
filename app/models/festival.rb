@@ -3,16 +3,16 @@ class Festival
               :description, :url, :longitude, :latitude, :id
 
   def initialize(festival)
-    @title       = festival["title"]
-    @city        = festival["city"]
-    @state       = festival["region"]
-    @date        = date_format(festival["start_time"])
-    @address     = festival["address"]
-    @description = festival["description"]
-    @url         = festival["url"]
-    @longitude   = festival["longitude"]
-    @latitude    = festival["latitude"]
-    @id          = festival["id"]
+    @title       = festival[:title]
+    @city        = festival[:city]
+    @state       = festival[:region]
+    @date        = date_format(festival[:start_time])
+    @address     = festival[:address]
+    @description = festival[:description]
+    @url         = festival[:url]
+    @longitude   = festival[:longitude]
+    @latitude    = festival[:latitude]
+    @id          = festival[:id]
   end
 
   def self.find_one_by(id)

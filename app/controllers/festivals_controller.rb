@@ -13,7 +13,7 @@ class FestivalsController < ApplicationController
       flash[:success] = 'Search saved to your dashboard!'
       redirect_to festival_path(params[:festival_id])
     else
-      flash[:danger] = 'Save unsuccessful.'
+      flash[:danger] = 'You already saved this festival...'
       redirect_to festival_path(params[:festival_id])
     end
   end
