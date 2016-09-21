@@ -1,6 +1,9 @@
 <div class="jumbotron trans">
   <div class="hero">
-    <h6 class="lead">Campgrounds for the festival bound...</h6>
+    <h5 class="lead">Campgrounds for the festival bound...</h5>
+    <h4 class = "lead">
+      Select a location, month and radius to find upcoming festivals to see a list of festivals. Once you select a festival from the list CampFound will provide you with a map of campgrounds near the festival!
+    </h4><br>
     <%= form_tag(festivals_path, :method => "get") do %>
       <div class="">
         <%= label_tag :location %>
