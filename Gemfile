@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'will_paginate'
 # gem 'capistrano-rails', group: :development
 
 group :test do

@@ -23,4 +23,14 @@ class Festival
   def date_format(datetime)
     datetime.to_datetime.strftime('%b %d, %Y') if datetime
   end
+
+  def to_param
+    slug
+  end
+
+  private
+
+  def festival_slug
+    self.slug = name.parameterize if name
+  end
 end
