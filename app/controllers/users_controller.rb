@@ -6,8 +6,7 @@ class UsersController < ApplicationController
 
   def show
     if current_user
-      @user = current_user
-      @searches = current_user.searches
+      @user = UsersFacade.new(current_user)
     else
       redirect_to root_path
       flash[:notice] = 'Sign in or log in to view your dashboard'
