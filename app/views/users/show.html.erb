@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <div class="hero">
-    <%= link_to "Back to festivals", :back %>
       <h3> Welcome, <%= @user.user.name %> </h3><br>
+      <%= link_to "Search for more festivals...", root_path %>
       <% unless @user.searches == [] %>
       <h6 class="lead">Here's a list of your saved searches...</h6>
       <% @user.searches.each do |search| %>

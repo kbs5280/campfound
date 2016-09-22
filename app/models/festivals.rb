@@ -25,4 +25,8 @@ class Festivals
   def date_format(datetime)
     datetime.to_datetime.strftime('%b %d, %Y')
   end
+
+  def to_param
+    "#{id} #{title}".parameterize
+  end
 end
