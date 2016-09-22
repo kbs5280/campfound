@@ -14,17 +14,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      if session[:festival_id]
-        redirect_to festival_path(session[:festival_id])
-        flash[:success] = 'Account created!'
-        session[:user_id] = user.id
-      else
-        session[:user_id] = user.id
-        redirect_to dashboard_path
-        notice[:success] = 'Account created!'
-      end
+    @user = User.new(user_params)
+    if @user.save
+      current_festival
     else
       redirect_to new_user_path
       flash[:danger] = 'Account creation failed. Try a different user name.'
@@ -35,5 +27,17 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :password, :password_confirmation)
+    end
+
+    def current_festival
+      if session[:festival_id]
+        redirect_to festival_path(session[:festival_id])
+        flash[:success] = 'Account created!'
+        session[:user_id] = @user.id
+      else
+        session[:user_id] = @user.id
+        redirect_to dashboard_path
+        notice[:success] = 'Account created!'
+      end
     end
 end
