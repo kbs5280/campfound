@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <div class="hero">
-    <%= link_to "Back to search", :back %>
+    <%= link_to "Back to search", root_path %>
     <h6 class="lead">Here's a list of all the festivals that meet your search criteria...</h6>
       <% @festivals.each do |festival| %>
         <div class="<%= festival.title%>">
