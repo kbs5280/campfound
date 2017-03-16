@@ -35,4 +35,4 @@ Finding the strengths and gaps in your knowledge of Ruby, Rails, and organizing 
 
 ## Project Description
 
-The goal of this project is to create a successful web application from a project idea. You will create an app that will authenticate with a third-party service, consume an api, and solve an actual problem.
+The goal of this project is to create a successful web application from a project idea. I will create an app that will authenticate with a third-party service, consume an API, and solve an actual problem.
