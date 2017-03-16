@@ -29,8 +29,8 @@ CampFound uses:
 
 ## Learning Goals
 
-Learning how to build a full Rails app from idea to delivery
-Revisiting previous concepts such as APIs and OAuth
+Learning how to build a full Rails app from idea to delivery.  
+Revisiting previous concepts such as APIs and OAuth.  
 Finding the strengths and gaps in your knowledge of Ruby, Rails, and organizing a project.
 
 ## Project Description
